@@ -21,7 +21,7 @@ template "/etc/samba/smb.conf" do
     variables(
         :workgroup => "SAMBA"
     )
-    nofities :restart, "service[smbd]"
+    notifies :restart, "service[smbd]"
 end
 
 service "smbd" do

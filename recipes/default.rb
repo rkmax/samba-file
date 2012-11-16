@@ -23,7 +23,7 @@ template "/etc/samba/smb.conf" do
         :realm => "SAMBA.COM",
         :server_string => "File server",
         :netbios_name => "SAMBA-FILE-SERVER",
-        :secutiry => "ads",
+        :security => "ads",
         :template_homedir => "/home/%D/%U",
         :shares => []
     )

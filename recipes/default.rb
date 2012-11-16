@@ -16,6 +16,13 @@ include_recipe "apt"
     end
 end
 
+template "/etc/samba/smb.conf" do
+    source "smb.conf.erb"
+    variables(
+        :workgroup => "SAMBA"
+    )
+    nofities :restart, "service[smbd]"
+end
 
 service "smbd" do
     action [:enable, :start]

@@ -19,7 +19,13 @@ end
 template "/etc/samba/smb.conf" do
     source "smb.conf.erb"
     variables(
-        :workgroup => "SAMBA"
+        :workgroup => "SAMBA",
+        :realm => "SAMBA.COM",
+        :server_string => "File server",
+        :netbios_name => "SAMBA-FILE-SERVER",
+        :secutiry => "ads",
+        :template_homedir => "/home/%D/%U",
+        :shares => []
     )
     notifies :restart, "service[smbd]"
 end

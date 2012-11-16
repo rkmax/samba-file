@@ -10,8 +10,13 @@
 include_recipe "apt"
 
 
-%w{samba samba-tool}.each do |pgk|
+%w{samba samba-tools}.each do |pgk|
     package pgk do
         action :install
     end
+end
+
+
+service "smbd" do
+    action [:enable, :start]
 end
